@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../layout/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../layout/header %>
+</header>
+
+<style type="text/css">
+    .salvar{
+     background-color: green;
+    }
+    .cancelar {
+     background-color: red;
+    }
+</style>
+
+<main>
+    <div class="jumbotron">
+            <h3>Edit produto</h3>
+
+            <form action="/products/edit/<%=product._id%>" method="post" >
+                <label>Mesa</label>
+                <input type="text" id="price" name="price" value="<%=product.price%>" placeholder="Mesa"/><br>
+                <label>Sanduíche</label>
+                <input type="text" id="title" name="title" value="<%=product.title%>" placeholder="Sanduíche" /><br>
+                <label>Bebida</label>
+                <input type="text" id="description" name="description" value="<%=product.description%>" placeholder="Bebida" /><br>
+                <label>Acompanhamento</label>
+                <input type="text" id="slug" name="slug" value="<%=product.slug%>" placeholder="Acompanhamento" /><br>
+              
+        
+                <input type="submit" class="salvar" value="Adicionar" />
+
+                <input type="button" class="cancelar" value="Cancelar" onClick="Nova()">
+
+                <script type="text/javascript">
+                    function Nova()
+                    {
+                    location.href="/products/new"
+                    }
+                </script>
+            </form>
+    </div>
+</main>
+
+<footer>
+    <% include ../layout/footer %>
+</footer>
+
+</body>
+</html>

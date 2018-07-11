@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../layout/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../layout/header %>
+</header>
+
+<main>
+    <div class="jumbotron">
+            <h2><%= title  %></h2>
+        <table class="table">
+            <th>Mesa</th>
+            <th>Sanduíche</th>
+            <th>Bebida</th>
+            <th>Acompanhamento</th>
+            <th>Opções</th>
+            </tr>
+            <% for(var i=0; i < products.length; i++) {%>			
+                <tr>
+                    <td><%= products[i].price %></td>
+                    <td><%= products[i].title %></td>
+                    <td><%= products[i].description %></td>
+                    <td><%= products[i].slug %></td>                    
+                    <td>
+                        <a href="products/delete/<%= products[i]._id %>">Deletar</a> |
+                        <a href="/products/editProduct/<%= products[i]._id %>">Editar</a>
+                    </td>                   
+                </tr>
+            <% } %>
+        
+        </table>
+    </div>
+</main>
+
+<footer>
+    <% include ../layout/footer %>
+</footer>
+
+</body>
+</html>
